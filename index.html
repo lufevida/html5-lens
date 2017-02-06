@@ -7,44 +7,24 @@
 <html>
 	{% include head.html %}
 	<body class="is-loading-0 is-loading-1 is-loading-2">
-
 		<!-- Main -->
-			<div id="main">
-
+		<div id="main">
 				<!-- Header -->
-					{% include header.html %}
-
+				{% include header.html %}
 				<!-- Thumbnail -->
-					<section id="thumbnails">
+				<section id="thumbnails">
+					{% for post in site.posts %}
 						<article>
-							<a class="thumbnail" href="images/fulls/01.jpg" data-position="left center"><img src="images/thumbs/01.jpg" alt="" /></a>
-							<h2>Diam tempus accumsan</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<a class="thumbnail" href="{{ site.baseurl }}/post.image" data-position="left center"><img src="images/thumbs/01.jpg" alt="" /></a>
+							<h2>{{ post.title }}</h2>
+							<p>{{ post.tagline }}</p>
 						</article>
-						<article>
-							<a class="thumbnail" href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" /></a>
-							<h2>Vivamus convallis libero</h2>
-							<p>Sed velit lacus, laoreet at venenatis convallis in lorem tincidunt.</p>
-						</article>
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-					</section>
-
-				<!-- Footer -->
-					{% include footer.html %}
-
-			</div>
-
+					{% endfor %}
+				</section>
+			<!-- Footer -->
+			{% include footer.html %}
+		</div>
 		<!-- Scripts -->
-			{% include scripts.html %}
-
+		{% include scripts.html %}
 	</body>
 </html>
